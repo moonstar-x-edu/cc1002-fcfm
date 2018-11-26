@@ -14,8 +14,8 @@ class Cola:
   # ej: poner(1)
   # ej: poner(2)
   def poner(self, x) :
-    if len(self.__L) < self.__max :
-      self.__L.append(x)
+    assert len(self.__L) <= self.__max-1 
+    self.__L.append(x)
   
   # sacar : -> any
   # Saca y entrega el primer valor de la cola.
@@ -74,10 +74,6 @@ class TestCola:
     assert str(self.__c) == "1 2 3"
     assert not self.__c.vacia()
     assert self.__c.llena()
-    self.__c.poner(4)
-    assert len(self.__c) == 3
-    assert str(self.__c) == "1 2 3"
-    assert self.__c.llena()
     assert self.__c.sacar() == 1
     assert self.__c.sacar() == 2
     assert self.__c.sacar() == 3
@@ -86,4 +82,3 @@ class TestCola:
 # test
 t = TestCola(3)
 t.test()
-
