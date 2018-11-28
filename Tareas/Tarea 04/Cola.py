@@ -1,12 +1,12 @@
 # __L : list
-# __max : int
+# max : int
 class Cola:
   #__init__ : int -> Cola
   # Crea un objeto de clase Cola de largo maximo n. Devuelve una referencia al objeto.
   # ej: Cola() -> referencia a objeto
   def __init__(self, n) :
     assert type(n) == int and n > 0
-    self.__max = n
+    self.max = n
     self.__L = []
   
   # poner : any -> 
@@ -14,7 +14,7 @@ class Cola:
   # ej: poner(1)
   # ej: poner(2)
   def poner(self, x) :
-    assert len(self.__L) <= self.__max-1 
+    assert len(self.__L) <= self.max-1 
     self.__L.append(x)
   
   # sacar : -> any
@@ -33,7 +33,7 @@ class Cola:
   # True si la cola esta llena.
   # ej: llena() -> False
   def llena(self) :
-    return len(self.__L) == self.__max
+    return len(self.__L) == self.max
 
   # len: Cola -> int
   # Entrega el largo de una cola.
