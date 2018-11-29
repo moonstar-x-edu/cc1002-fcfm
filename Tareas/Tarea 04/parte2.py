@@ -44,7 +44,7 @@ def actualizarNombreClientes() :
 # Realiza la accion de atender al primero de la cola 1, si esta cola esta vacia, entonces se atiende al primero de la cola 2.
 def atenderCaja() :
     assert isinstance(cola1, Cola) and isinstance(cola2, Cola)
-    if len(cola1) > 0 :
+    if not cola1.vacia() :
         labelAtendiendo.config(text="Atendiendo a: " + str(cola1.sacar()))
         tiempoEsperado = int((time() - tiempoInicial) - tiempo1.sacar())
         labelSegundos.config(text="Segundos que espero: " + str(tiempoEsperado))
@@ -99,18 +99,13 @@ labelReloj = Label(fila1, width=ancho)
 labelReloj.grid(row=0, column=3)
 
 # Items Marco 2
-labelCola = Label(fila2, text="Cola", width=ancho)
-labelCola.grid(row=1, column=0)
-labelClientes = Label(fila2, text="Clientes en la cola", width=ancho)
-labelClientes.grid(row=1, column=1)
-labelLargoCola = Label(fila2, text="Largo de la cola", width=ancho)
-labelLargoCola.grid(row=1, column=2)
-labelClienteLlega = Label(fila2, text="Cliente que llega", width=ancho)
-labelClienteLlega.grid(row=1, column=3)
+Label(fila2, text="Cola", width=ancho).grid(row=1, column=0)
+Label(fila2, text="Clientes en la cola", width=ancho).grid(row=1, column=1)
+Label(fila2, text="Largo de la cola", width=ancho).grid(row=1, column=2)
+Label(fila2, text="Cliente que llega", width=ancho).grid(row=1, column=3)
 
 # Items Marco 3
-labelCola1 = Label(fila3, text="Cola 1", width=ancho)
-labelCola1.grid(row=2, column=0)
+Label(fila3, text="Cola 1", width=ancho).grid(row=2, column=0)
 labelClientesEsperando1 = Label(fila3, width=ancho)
 labelClientesEsperando1.grid(row=2, column=1)
 labelLargoCola1 = Label(fila3, text=0, width=ancho)
@@ -120,8 +115,7 @@ nombreCola1.bind("<Return>", (lambda evento: agregarCliente(cola1, tiempo1, nomb
 nombreCola1.grid(row=2, column=3)
 
 # Items Marco 4
-labelCola2 = Label(fila4, text="Cola 2", width=ancho)
-labelCola2.grid(row=3, column=0)
+Label(fila4, text="Cola 2", width=ancho).grid(row=3, column=0)
 labelClientesEsperando2 = Label(fila4, width=ancho)
 labelClientesEsperando2.grid(row=3, column=1)
 labelLargoCola2 = Label(fila4, text=0, width=ancho)
